@@ -4,7 +4,7 @@
       <slot v-bind:todo="todo" :user="user">
         {{ todo.id }}
       </slot>
-      {{ status ? 'study' : 'play' }}
+      {{ status ? 'study' : 'play' }}{{foo}}
     </li>
   </ul>
 </template>
@@ -25,6 +25,7 @@ export default {
       default: false,
     },
   },
+  inject: ['foo'],
 
   data () {
     return {
@@ -39,7 +40,11 @@ export default {
 
     handleClick () {
 
-      this.$emit('update:status', false)
+      // this.$emit('update:status', false)
+      // this.$parent.$on('sayHello', function (e) {
+      //   console.log(e)
+      // })
+      this.$bus.$emit('test', 'this')
     },
   },
 }
