@@ -23,7 +23,7 @@ export default {
     }
   },
   mounted () {
-    this.$on('validate', () => this.validate())
+    this.$on('validate', () => { this.validate() })
     // console.log(this.zForm)
   },
   methods: {
