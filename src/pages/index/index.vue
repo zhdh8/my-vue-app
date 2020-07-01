@@ -20,6 +20,9 @@
   import zForm from '@/components/Form/zForm'
   import zFormItem from '@/components/Form/zFormItem'
   import zInput from '@/components/Form/zInput'
+  import Notify from '@/components/Notify'
+
+  import create from '@/utils/create'
   export default {
     name: 'home',
     components: {
@@ -58,6 +61,9 @@
     mounted () {
       // console.log(this.$refs.demo.msg)
       // console.log(this.$children[0].msg)
+      create(Notify, {
+        tips: '你看',
+      })
     },
     methods: {
       handleAdd (e) {
