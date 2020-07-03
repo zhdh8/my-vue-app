@@ -22,7 +22,6 @@
   import zInput from '@/components/Form/zInput'
   import Notify from '@/components/Notify'
 
-  import create from '@/utils/create'
   export default {
     name: 'home',
     components: {
@@ -61,9 +60,10 @@
     mounted () {
       // console.log(this.$refs.demo.msg)
       // console.log(this.$children[0].msg)
-      create(Notify, {
-        tips: '你看',
-      })
+      // this.$create(Notify, {
+      //   tips: '你看',
+      //   duration: 1000,
+      // }).show()
     },
     methods: {
       handleAdd (e) {
@@ -79,9 +79,14 @@
         this.$refs.form.validate((valid) => {
           console.log(valid, 'valid')
           if (valid) {
-            alert('提交')
+            this.$create(Notify, {
+              tips: '验证通过',
+              duration: '1000',
+            }).show()
           } else {
-            console.log('有错')
+            this.$create(Notify, {
+              tips: '有错~~~~~~',
+            }).show()
           }
         })
       },
