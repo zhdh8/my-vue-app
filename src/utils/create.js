@@ -4,7 +4,7 @@ import Vue from 'vue'
  *
  */
 
- export default (componentName, propsObj) => {
+export default (componentName, propsObj) => {
   const vm = new Vue({
     render: h => h(componentName, {props: propsObj, class: 'notify'})
   }).$mount()
@@ -15,12 +15,10 @@ import Vue from 'vue'
 
   // 销毁方法
   comp.remove = function () {
-    setTimeout(() => {
-      document.body.removeChild(vm.$el)
-      vm.$destroy()
-      // console.log(vm)
-    }, propsObj.duration)
+    document.body.removeChild(vm.$el)
+    vm.$destroy()
+    // console.log(vm)
   }
 
   return comp
- }
+}

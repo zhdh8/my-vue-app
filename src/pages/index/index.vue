@@ -13,6 +13,8 @@
         <button @click="handleSubmit">提交</button>
       </z-form-item>
     </z-form>
+
+    <z-tree :lists="menus"></z-tree>
   </div>
 </template>
 
@@ -21,6 +23,7 @@
   import zFormItem from '@/components/Form/zFormItem'
   import zInput from '@/components/Form/zInput'
   import Notify from '@/components/Notify'
+  import zTree from '@/components/zTree'
 
   export default {
     name: 'home',
@@ -28,6 +31,7 @@
       zForm,
       zFormItem,
       zInput,
+      zTree,
     },
     provide() {
       return {
@@ -54,6 +58,31 @@
           { text: 'learn components', id: 2, isComplete: true, },
           { text: 'learn event', id: 3, isComplete: false, },
         ],
+        menus: [
+        {
+          name: '一级菜单01',
+          children: [
+            {
+              name: '二级菜单01',
+              children: [
+                {
+                  name: '三级菜单01',
+                  children: [],
+                }
+              ],
+            }
+          ],
+        },
+        {
+          name: '一级菜单02',
+          children: [
+            {
+              name: '二级菜单',
+              children: [],
+            }
+          ],
+        },
+      ],
         inputVal: '',
       }
     },
