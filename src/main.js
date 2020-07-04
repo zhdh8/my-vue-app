@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import Router from '../src/router/index'
+import routes from '../src/router/index'
+import VueRouter from 'vue-router'
 
 import ZButton from './components/Buttton/index'
 import Bus from '@/utils/bus'
@@ -12,11 +13,16 @@ Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.use(ZButton)
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  routes,
+})
 
 Vue.prototype.$bus = new Bus()
 Vue.prototype.$create = create
 
 new Vue({
   render: h => h(App),
-  router: Router,
+  router,
 }).$mount('#app')
