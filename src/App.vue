@@ -10,7 +10,7 @@
     <div class="aside">
       <router-link to="/">home</router-link>
       <br>
-      <router-link to="/list/2">list {{ $route.params.id }}</router-link>
+      <router-link to="/list">list</router-link>
     </div>
     <div class="main">
       <router-view />
