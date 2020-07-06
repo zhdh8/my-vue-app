@@ -1,5 +1,6 @@
 // 重写vue-router
-import Vue from 'vue'
+// import Vue from 'vue'
+let Vue
 
 class zRouter {
 
@@ -20,7 +21,7 @@ class zRouter {
   init () {
 
     window.addEventListener('load', this.onHashChange.bind(this), false)
-    window.addEventListener('hashChange', this.onHashChange.bind(this), false)
+    window.addEventListener('hashchange', this.onHashChange.bind(this), false)
 
     this.pathMapRoute(this.routes)
     this.initComponent()
@@ -31,8 +32,8 @@ class zRouter {
   pathMapRoute (routes) {
 
     routes.forEach(item => {
-
-      this.routeMap[this.app.current] = item
+      this.routeMap[item.path] = item
+      console.log(this.routeMap)
     })
   }
 
@@ -55,6 +56,7 @@ class zRouter {
       },
     })
 
+    
     Vue.component('router-view', {
       render: h => {
 
@@ -64,20 +66,18 @@ class zRouter {
   }
 
   onHashChange () {
-
+    
     this.app.current = window.location.hash.slice(1) || '/'
-    console.log(this.app.current)
   }
 }
 
-zRouter.install = function (Vue) {
+zRouter.install = function (_Vue) {
 
-  // Vue = Vue
+  Vue = _Vue
 
   Vue.mixin({
     beforeCreate () {
       if (this.$options.router) {
-        console.log(this, 'this')
         Vue.prototype.$router = this.$options.router
         this.$options.router.init()
       }
