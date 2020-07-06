@@ -7,7 +7,14 @@
       <span>{{ todo.text }}</span>
     </todo-list> -->
     <!-- <z-button disabled @click="submit($event)">提交</z-button> -->
-    <router-view />
+    <div class="aside">
+      <router-link to="/">home</router-link>
+      <br>
+      <router-link to="/list/2">list {{ $route.params.id }}</router-link>
+    </div>
+    <div class="main">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -46,10 +53,19 @@ export default {
 
 <style>
 #app {
+  display: flex;
+  margin-top: 60px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.aside {
+  width: 200px;
+}
+
+.main {
+  flex: 1;
 }
 </style>
