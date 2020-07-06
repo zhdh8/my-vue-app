@@ -5,7 +5,9 @@
 </template>
 
 <script>
+import emitter from '@/mixins/emitter'
 export default {
+  mixins: [emitter],
   inheritAttrs: false,
   props: {
     value: {
@@ -17,7 +19,8 @@ export default {
     onInput (e) {
       this.$emit('input', e.target.value)
 
-      this.$parent.$emit('validate')
+      // this.$parent.$emit('validate')
+      this.dispatch('zFormItem', 'validate')
     },
   },
 }

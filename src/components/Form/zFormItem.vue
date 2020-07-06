@@ -9,6 +9,7 @@
 <script>
 import Schema from 'async-validator'
 export default {
+  name: 'zFormItem',
   props: {
     label: {
       type: String,

@@ -4,10 +4,10 @@
     <!-- {{ model }} -->
     <z-form :model="formData" :rules="rules" ref="form">
       <z-form-item label="用户名" prop="username">
-        <z-input v-model="formData.username"></z-input>
+        <p><z-input v-model="formData.username"></z-input></p>
       </z-form-item>
       <z-form-item label="密码" prop="password">
-        <z-input v-model="formData.password" type="password"></z-input>
+        <p><z-input v-model="formData.password" type="password"></z-input></p>
       </z-form-item>
       <z-form-item>
         <button @click="handleSubmit">提交</button>
