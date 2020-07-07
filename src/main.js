@@ -6,16 +6,17 @@ import router from '../src/router/index'
 
 import ZButton from './components/Buttton/index'
 import Bus from '@/utils/bus'
-import create from '@/utils/create'
+import create from '@/plugins/create'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
 Vue.use(ZButton)
+Vue.use(create)
 
 
 Vue.prototype.$bus = new Bus()
-Vue.prototype.$create = create
+// Vue.prototype.$create = create
 
 new Vue({
   render: h => h(App),
